@@ -1,0 +1,122 @@
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="tabsContent">
+                    <div class="p-tb40">
+
+                        <form [formGroup]="addMobileGroup"  autocomplete="off" (ngSubmit)="addMobileSubmit()">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <mat-form-field class="example-full-width">
+                                                <input matInput placeholder="Mobile Nick Name"
+                                                    formControlName="nickName" class=""
+                                                    [ngClass]="{ 'is-invalid': submitted && f.nickName.errors }">
+                                            </mat-form-field>
+                                            <!-- <mat-error *ngIf="!addMobileGroup.controls['nickName'].valid && addMobileGroup.controls['nickName'].touched">
+                                                Mobile NickName is required
+                                              </mat-error> -->
+
+                                            <div *ngIf="submitted && f.nickName.errors" class="invalid-feedback">
+                                                <div *ngIf="submitted && f.nickName.errors?.required" class="invalid-feedback">Mobile NickName is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <mat-form-field class="example-full-width">
+                                                <input matInput placeholder="Mobile Number"
+                                                    formControlName="mobileNumber" class=""  maxlength="10" minlength="10" (keypress)="numberOnly1($event)" 
+                                                    [ngClass]="{ 'is-invalid': submitted && f.mobileNumber.errors }">
+                                            </mat-form-field>
+
+                                            <div *ngIf="submitted && f.mobileNumber.errors" class="invalid-feedback">
+                                                <div *ngIf="f.mobileNumber.errors?.required">Mobile NickName is required
+                                                </div>
+                                            </div>
+                                            <div class="error"
+                  *ngIf="addMobileGroup.get('mobileNumber').hasError('pattern') && addMobileGroup.get('mobileNumber').touched">
+                  Numbers & Special characters are not allowed
+                </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <mat-form-field class="example-full-width">
+                                                <input matInput placeholder="IMEI1 Number" formControlName="imei1"
+                                                    class=""
+                                                    [ngClass]="{ 'is-invalid': submitted && f.imei1.errors }">
+                                            </mat-form-field>
+
+                                            <div *ngIf="submitted && f.imei1.errors" class="invalid-feedback">
+                                                <div *ngIf="f.imei1.errors?.required">IMEI Number is required</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="upload-btn-wrapper">
+                                                <button class="btn">Upload a file <img
+                                                        src="./../../../../assets/images/fileUpload.png" /></button>
+                                                <input type="file" name="myfile" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    <div class="row">
+                                        
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <mat-form-field class="example-full-width">
+                                                <input matInput placeholder="IMEI2 Number (optional)" formControlName="imei2">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>Select Mobile Model</mat-label>
+                                                <mat-select formControlName="mobileMakeId">
+                                                    <mat-option *ngFor="let mobile of mobileModalsList" [value]="mobile.makeId">
+                                                        {{ mobile.mobileMaker }}
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+
+                                            <div *ngIf="submitted && f.mobileMakeId.errors" class="invalid-feedback">
+                                                <div *ngIf="f.mobileMakeId.errors?.required">IMEI Number is required
+                                                </div>
+                                            </div>
+                                            
+                  
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <mat-form-field class="example-full-width">
+                                                <input matInput placeholder="Mobile Type" formControlName="mobileType">
+                                            </mat-form-field>
+                                            <div *ngIf="submitted && f.mobileType.errors" class="invalid-feedback">
+                                                <div *ngIf="f.mobileType.errors?.required">Mobile Model is required
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        
+                                    </div>
+                                   
+                                </div>
+
+                                    
+                                
+
+
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 d-block mx-auto">
+                                    <br />
+                                    <button type="submit" class="submitBtn">Add Mobile</button>
+                                </div>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

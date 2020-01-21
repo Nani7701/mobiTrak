@@ -1,0 +1,23 @@
+.mat-elevation-z8  { width: 100%; }
+.mat-header-cell {
+    color: #fff;
+    background: #038bd2;
+}
+
+.activeCol {
+    color: green;
+}
+
+.soldCol {
+    color: orange;
+}
+
+.lostCol {
+    color: red;
+}
+
+.fa-edit {
+    float: right;
+    margin-left: 45%;
+    cursor: pointer;
+}
